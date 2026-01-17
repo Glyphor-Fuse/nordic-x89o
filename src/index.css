@@ -1,1 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;700;800&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Syne", sans-serif;
+
+  --color-frost-50: #f0f9ff;
+  --color-frost-100: #e0f2fe;
+  --color-frost-200: #bae6fd;
+  --color-frost-300: #7dd3fc;
+  --color-frost-400: #38bdf8;
+  --color-frost-500: #0ea5e9;
+  --color-frost-900: #0c4a6e;
+  
+  --color-deep-slate: #0f172a;
+  --color-ice-overlay: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+
+  --animate-float: float 6s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+body {
+  background-color: var(--color-deep-slate);
+  color: var(--color-frost-50);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for that 'Ice' feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 4px;
+}

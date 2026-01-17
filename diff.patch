@@ -1,0 +1,584 @@
+diff --git a/index.html b/index.html
+index 59f1d53..d37fc13 100644
+--- a/index.html
++++ b/index.html
+@@ -1,5 +1,14 @@
+-<head>
+-  <meta charset="UTF-8" />
+-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-  <title>Glyphor Fuse Project</title>
+-</head>
++<!doctype html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <meta name="description" content="Experience the ethereal beauty of Iceland. Explore glaciers, blue lagoons, and the northern lights." />
++    <meta name="theme-color" content="#0f172a" />
++    <title>ICELAND | The Nordic Frost</title>
++  </head>
++  <body>
++    <div id="root"></div>
++    <script type="module" src="/src/main.tsx"></script>
++  </body>
++</html>
+\ No newline at end of file
+diff --git a/src/App.tsx b/src/App.tsx
+index 2aebe29..15da2d3 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1,14 +1,25 @@
++import Navbar from './components/Navbar';
++import Hero from './components/Hero';
++import ExpeditionFinder from './components/ExpeditionFinder';
++import DestinationGrid from './components/DestinationGrid';
++import LagoonFeature from './components/LagoonFeature';
++import AuroraFooter from './components/AuroraFooter';
++
+ function App() {
+   return (
+-    <div className="flex min-h-screen items-center justify-center bg-black text-white">
+-      <div className="text-center">
+-        <h1 className="text-2xl font-bold tracking-tight text-zinc-500">
+-          Glyphor Fuse Skeleton
+-        </h1>
+-        <p className="mt-2 text-sm text-zinc-700">Waiting for generation...</p>
+-      </div>
++    <div className="min-h-screen font-sans selection:bg-frost-400 selection:text-deep-slate">
++      <Navbar />
++      <main>
++        <Hero />
++        <div className="relative z-20 -mt-24 px-4">
++          <ExpeditionFinder />
++        </div>
++        <DestinationGrid />
++        <LagoonFeature />
++      </main>
++      <AuroraFooter />
+     </div>
+   );
+ }
+ 
+-export default App;
++export default App;
+\ No newline at end of file
+diff --git a/src/components/AuroraFooter.tsx b/src/components/AuroraFooter.tsx
+new file mode 100644
+index 0000000..a7fa34a
+--- /dev/null
++++ b/src/components/AuroraFooter.tsx
+@@ -0,0 +1,69 @@
++import { Instagram, Twitter, Facebook, ArrowUp } from 'lucide-react';
++
++export default function AuroraFooter() {
++  const scrollToTop = () => {
++    window.scrollTo({ top: 0, behavior: 'smooth' });
++  };
++
++  return (
++    <footer className="relative bg-deep-slate pt-32 pb-12 px-6 overflow-hidden border-t border-white/5">
++      {/* Aurora Effect CSS */}
++      <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-frost-500/10 to-transparent opacity-50 pointer-events-none" />
++      
++      <div className="max-w-7xl mx-auto relative z-10">
++        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
++          <div className="col-span-1 md:col-span-2">
++            <h2 className="font-display text-3xl font-bold text-white mb-6">NORDIC<span className="text-frost-300">FROST</span></h2>
++            <p className="text-frost-200/60 max-w-sm mb-8">
++              Curating exceptional expeditions to the edge of the world. Iceland is not just a destination; it is a feeling.
++            </p>
++            <div className="flex gap-4">
++              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-frost-500 hover:text-deep-slate transition-all">
++                <Instagram className="w-4 h-4" />
++              </a>
++              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-frost-500 hover:text-deep-slate transition-all">
++                <Twitter className="w-4 h-4" />
++              </a>
++              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-frost-500 hover:text-deep-slate transition-all">
++                <Facebook className="w-4 h-4" />
++              </a>
++            </div>
++          </div>
++
++          <div>
++            <h4 className="text-white font-bold mb-6">Explore</h4>
++            <ul className="space-y-4 text-frost-200/60 text-sm">
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">Glacier Hikes</li>
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">Ice Caves</li>
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">Blue Lagoon</li>
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">Volcano Tours</li>
++            </ul>
++          </div>
++
++          <div>
++            <h4 className="text-white font-bold mb-6">Company</h4>
++            <ul className="space-y-4 text-frost-200/60 text-sm">
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">About Us</li>
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">Sustainability</li>
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">Travel Guides</li>
++              <li className="hover:text-frost-300 cursor-pointer transition-colors">Contact</li>
++            </ul>
++          </div>
++        </div>
++
++        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
++          <p className="text-frost-200/40 text-xs mb-4 md:mb-0">
++            © 2024 Nordic Frost Expeditions. All rights reserved.
++          </p>
++          <button 
++            onClick={scrollToTop}
++            className="flex items-center gap-2 text-xs text-white uppercase tracking-widest hover:text-frost-300 transition-colors"
++          >
++            Back to Top
++            <ArrowUp className="w-4 h-4" />
++          </button>
++        </div>
++      </div>
++    </footer>
++  );
++}
+\ No newline at end of file
+diff --git a/src/components/DestinationGrid.tsx b/src/components/DestinationGrid.tsx
+new file mode 100644
+index 0000000..1e12f61
+--- /dev/null
++++ b/src/components/DestinationGrid.tsx
+@@ -0,0 +1,128 @@
++import { ArrowUpRight } from 'lucide-react';
++
++const destinations = [
++  {
++    id: 1,
++    title: "Black Sand Beach",
++    location: "Reynisfjara",
++    image: "<div className="relative">
++  <img 
++    src="https://images.pexels.com/photos/14376901/pexels-photo-14376901.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" 
++    alt="Woman in elegant red dress on Reynisfjara Beach, Iceland, showcasing dramatic rock formations."
++    width="3295"
++    height="4943"
++    className="w-full h-full object-cover"
++  />
++  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
++    <a href="https://www.pexels.com/photo/woman-in-red-spaghetti-strap-dress-standing-beside-the-rock-14376901/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
++      Photo by Erica On The Go on Pexels
++    </a>
++  </div>
++</div>",
++    size: "large"
++  },
++  {
++    id: 2,
++    title: "Ice Caves",
++    location: "Vatnajökull",
++    image: "<div className="relative">
++  <img 
++    src="https://images.pexels.com/photos/31028950/pexels-photo-31028950.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" 
++    alt="Explore the mesmerizing colors inside a natural icy formation."
++    width="3648"
++    height="5472"
++    className="w-full h-full object-cover"
++  />
++  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
++    <a href="https://www.pexels.com/photo/stunning-view-inside-an-ice-cave-31028950/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
++      Photo by Shuo Wang on Pexels
++    </a>
++  </div>
++</div>",
++    size: "small"
++  },
++  {
++    id: 3,
++    title: "Geothermal",
++    location: "Mývatn",
++    image: "<div className="relative">
++  <img 
++    src="https://images.pexels.com/photos/3115006/pexels-photo-3115006.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
++    alt="Aerial view of geothermal rocks and aqua waters at Iceland's Blue Lagoon."
++    width="2237"
++    height="2237"
++    className="w-full h-full object-cover"
++  />
++  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
++    <a href="https://www.pexels.com/photo/white-and-black-stone-fragment-3115006/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
++      Photo by Mark Neal on Pexels
++    </a>
++  </div>
++</div>",
++    size: "small"
++  }
++];
++
++export default function DestinationGrid() {
++  return (
++    <section className="py-24 px-6 max-w-7xl mx-auto">
++      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
++        <div>
++          <h3 className="text-frost-400 uppercase tracking-widest text-sm font-medium mb-2">Curated Expeditions</h3>
++          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">Frozen Landscapes</h2>
++        </div>
++        <button className="text-white border-b border-frost-400 pb-1 hover:text-frost-300 transition-colors text-sm tracking-widest uppercase">
++          View All Locations
++        </button>
++      </div>
++
++      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
++        {/* Large Item */}
++        <div className="md:col-span-1 group relative overflow-hidden h-[400px] md:h-full cursor-pointer">
++          <img 
++            src={destinations[0].image} 
++            alt={destinations[0].title}
++            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
++          />
++          <div className="absolute inset-0 bg-gradient-to-t from-deep-slate/90 via-transparent to-transparent opacity-80" />
++          <div className="absolute bottom-0 left-0 p-8 w-full">
++            <div className="flex justify-between items-end">
++              <div>
++                <p className="text-frost-300 text-sm tracking-wider mb-2">{destinations[0].location}</p>
++                <h3 className="font-display text-3xl text-white">{destinations[0].title}</h3>
++              </div>
++              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-sm group-hover:bg-white group-hover:text-deep-slate transition-all">
++                <ArrowUpRight className="w-5 h-5" />
++              </div>
++            </div>
++          </div>
++        </div>
++
++        {/* Small Items Column */}
++        <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
++          {destinations.slice(1).map((dest) => (
++            <div key={dest.id} className="group relative overflow-hidden h-[300px] md:h-full cursor-pointer">
++              <img 
++                src={dest.image} 
++                alt={dest.title}
++                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
++              />
++              <div className="absolute inset-0 bg-gradient-to-t from-deep-slate/90 via-transparent to-transparent opacity-80" />
++              <div className="absolute bottom-0 left-0 p-8 w-full">
++                <div className="flex justify-between items-end">
++                  <div>
++                    <p className="text-frost-300 text-sm tracking-wider mb-2">{dest.location}</p>
++                    <h3 className="font-display text-2xl text-white">{dest.title}</h3>
++                  </div>
++                  <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-sm group-hover:bg-white group-hover:text-deep-slate transition-all">
++                    <ArrowUpRight className="w-5 h-5" />
++                  </div>
++                </div>
++              </div>
++            </div>
++          ))}
++        </div>
++      </div>
++    </section>
++  );
++}
+\ No newline at end of file
+diff --git a/src/components/ExpeditionFinder.tsx b/src/components/ExpeditionFinder.tsx
+new file mode 100644
+index 0000000..d098f45
+--- /dev/null
++++ b/src/components/ExpeditionFinder.tsx
+@@ -0,0 +1,43 @@
++import { Calendar, MapPin, Users, ArrowRight } from 'lucide-react';
++
++export default function ExpeditionFinder() {
++  return (
++    <div className="max-w-5xl mx-auto">
++      <div className="bg-white/5 backdrop-blur-xl border border-white/20 p-2 md:p-4 rounded-none md:rounded-full shadow-2xl flex flex-col md:flex-row gap-2">
++        
++        {/* Destination Input */}
++        <div className="flex-1 flex items-center gap-4 px-6 py-4 border-b md:border-b-0 md:border-r border-white/10 hover:bg-white/5 transition-colors group cursor-pointer rounded-t-lg md:rounded-l-full">
++          <MapPin className="text-frost-400 w-5 h-5 group-hover:scale-110 transition-transform" />
++          <div className="flex flex-col">
++            <span className="text-[10px] uppercase tracking-widest text-frost-300">Destination</span>
++            <span className="font-display text-white text-lg">Vatnajökull</span>
++          </div>
++        </div>
++
++        {/* Date Input */}
++        <div className="flex-1 flex items-center gap-4 px-6 py-4 border-b md:border-b-0 md:border-r border-white/10 hover:bg-white/5 transition-colors group cursor-pointer">
++          <Calendar className="text-frost-400 w-5 h-5 group-hover:scale-110 transition-transform" />
++          <div className="flex flex-col">
++            <span className="text-[10px] uppercase tracking-widest text-frost-300">Dates</span>
++            <span className="font-display text-white text-lg">Oct 24 - Nov 02</span>
++          </div>
++        </div>
++
++        {/* Guests Input */}
++        <div className="flex-1 flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors group cursor-pointer rounded-b-lg md:rounded-none">
++          <Users className="text-frost-400 w-5 h-5 group-hover:scale-110 transition-transform" />
++          <div className="flex flex-col">
++            <span className="text-[10px] uppercase tracking-widest text-frost-300">Travelers</span>
++            <span className="font-display text-white text-lg">2 Adults</span>
++          </div>
++        </div>
++
++        {/* Search Button */}
++        <button className="bg-frost-500 hover:bg-frost-400 text-deep-slate font-bold px-8 py-4 md:rounded-full rounded-lg flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(56,189,248,0.5)]">
++          <span>SEARCH</span>
++          <ArrowRight className="w-5 h-5" />
++        </button>
++      </div>
++    </div>
++  );
++}
+\ No newline at end of file
+diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
+new file mode 100644
+index 0000000..9d47cf3
+--- /dev/null
++++ b/src/components/Hero.tsx
+@@ -0,0 +1,52 @@
++import { ChevronDown } from 'lucide-react';
++
++export default function Hero() {
++  return (
++    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
++      {/* Background Image with Overlay */}
++      <div className="absolute inset-0 z-0">
++        <img 
++          src="<div className="relative">
++  <img 
++    src="https://images.pexels.com/photos/19320672/pexels-photo-19320672.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" 
++    alt="Explore the stunning blue hues of an ice cavern in Iceland, showcasing nature's icy artistry."
++    width="5212"
++    height="4024"
++    className="w-full h-full object-cover"
++  />
++  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
++    <a href="https://www.pexels.com/photo/ice-cave-on-iceland-19320672/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
++      Photo by David Stanfield on Pexels
++    </a>
++  </div>
++</div>" 
++          alt="Glacier Landscape" 
++          className="w-full h-full object-cover scale-105"
++        />
++        <div className="absolute inset-0 bg-gradient-to-b from-deep-slate/40 via-transparent to-deep-slate/90" />
++      </div>
++
++      {/* Hero Content */}
++      <div className="relative z-10 text-center max-w-5xl px-6 mt-16">
++        <h2 className="text-frost-300 tracking-[0.3em] text-sm md:text-base mb-6 font-medium animate-fade-in-up">
++          EST. 64° NORTH
++        </h2>
++        <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight mb-8 drop-shadow-2xl">
++          INTO THE <br />
++          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-frost-400">
++            UNKNOWN
++          </span>
++        </h1>
++        <p className="max-w-xl mx-auto text-frost-100 text-lg md:text-xl font-light leading-relaxed mb-12 border-l-2 border-frost-300 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
++          Traverse the eternal ice of Vatnajökull and immerse yourself in the healing geothermal waters of the Blue Lagoon.
++        </p>
++      </div>
++
++      {/* Scroll Indicator */}
++      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float opacity-70">
++        <span className="text-[10px] tracking-widest uppercase text-frost-200">Scroll to Explore</span>
++        <ChevronDown className="w-5 h-5 text-white" />
++      </div>
++    </div>
++  );
++}
+\ No newline at end of file
+diff --git a/src/components/LagoonFeature.tsx b/src/components/LagoonFeature.tsx
+new file mode 100644
+index 0000000..f0d2c42
+--- /dev/null
++++ b/src/components/LagoonFeature.tsx
+@@ -0,0 +1,94 @@
++import { Droplets, Thermometer, Sparkles } from 'lucide-react';
++
++export default function LagoonFeature() {
++  return (
++    <section className="relative py-32 overflow-hidden">
++      {/* Background */}
++      <div className="absolute inset-0 z-0">
++        <img 
++          src="<div className="relative">
++  <img 
++    src="https://images.pexels.com/photos/20955080/pexels-photo-20955080.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" 
++    alt="People enjoying relaxation and recreation in Iceland's soothing Blue Lagoon geothermal spa."
++    width="5184"
++    height="2916"
++    className="w-full h-full object-cover"
++  />
++  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
++    <a href="https://www.pexels.com/photo/people-bathing-in-the-pool-of-the-blue-lagoon-geothermal-spa-in-iceland-20955080/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
++      Photo by It's MJ! on Pexels
++    </a>
++  </div>
++</div>" 
++          alt="Blue Lagoon" 
++          className="w-full h-full object-cover opacity-60"
++        />
++        <div className="absolute inset-0 bg-gradient-to-r from-deep-slate via-deep-slate/90 to-transparent" />
++      </div>
++
++      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
++        <div>
++          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-frost-500/10 border border-frost-500/20 text-frost-300 text-xs tracking-widest uppercase mb-6">
++            <Sparkles className="w-3 h-3" />
++            <span>Premium Experience</span>
++          </div>
++          <h2 className="font-display text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
++            The Healing <br />
++            <span className="text-frost-400">Silica Waters</span>
++          </h2>
++          <p className="text-frost-100/80 text-lg leading-relaxed mb-10 max-w-lg">
++            Immerse yourself in milky-blue waters rich in silica, algae, and minerals. The lagoon maintains a perfect temperature year-round, offering a stark, comforting contrast to the arctic air.
++          </p>
++
++          <div className="grid grid-cols-2 gap-6 mb-10">
++            <div className="bg-white/5 backdrop-blur-md p-6 border border-white/10 hover:border-frost-400/50 transition-colors">
++              <Thermometer className="w-8 h-8 text-frost-400 mb-4" />
++              <div className="text-2xl font-display font-bold text-white mb-1">39°C</div>
++              <div className="text-xs text-frost-200 uppercase tracking-wider">Average Temp</div>
++            </div>
++            <div className="bg-white/5 backdrop-blur-md p-6 border border-white/10 hover:border-frost-400/50 transition-colors">
++              <Droplets className="w-8 h-8 text-frost-400 mb-4" />
++              <div className="text-2xl font-display font-bold text-white mb-1">pH 7.5</div>
++              <div className="text-xs text-frost-200 uppercase tracking-wider">Mineral Rich</div>
++            </div>
++          </div>
++
++          <button className="bg-white text-deep-slate px-8 py-4 font-bold tracking-wide hover:bg-frost-200 transition-colors">
++            RESERVE LAGOON ACCESS
++          </button>
++        </div>
++
++        {/* Decorative glass card */}
++        <div className="hidden lg:block relative">
++          <div className="absolute -inset-4 bg-frost-400/20 blur-3xl rounded-full"></div>
++          <img 
++            src="<div className="relative">
++  <img 
++    src="https://images.pexels.com/photos/7531673/pexels-photo-7531673.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" 
++    alt="A serene resort with bungalows amidst mossy volcanic rocks in Iceland."
++    width="3024"
++    height="4032"
++    className="w-full h-full object-cover"
++  />
++  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
++    <a href="https://www.pexels.com/photo/moss-covered-volcanic-rocks-with-bungalows-in-the-background-7531673/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
++      Photo by Christopher Seufert on Pexels
++    </a>
++  </div>
++</div>" 
++            alt="Relaxation"
++            className="relative rounded-2xl shadow-2xl border border-white/10 w-3/4 ml-auto"
++          />
++          <div className="absolute bottom-12 -left-12 bg-deep-slate/80 backdrop-blur-xl p-6 border border-white/10 max-w-xs shadow-xl">
++            <p className="font-display text-xl text-white italic">"A surreal escape where the water meets the sky."</p>
++            <div className="flex gap-1 mt-4">
++              {[1,2,3,4,5].map(i => (
++                <div key={i} className="w-2 h-2 rounded-full bg-frost-400" />
++              ))}
++            </div>
++          </div>
++        </div>
++      </div>
++    </section>
++  );
++}
+\ No newline at end of file
+diff --git a/src/components/Navbar.tsx b/src/components/Navbar.tsx
+new file mode 100644
+index 0000000..76fc619
+--- /dev/null
++++ b/src/components/Navbar.tsx
+@@ -0,0 +1,42 @@
++import { Menu, Search, Wind } from 'lucide-react';
++import { useState, useEffect } from 'react';
++
++export default function Navbar() {
++  const [scrolled, setScrolled] = useState(false);
++
++  useEffect(() => {
++    const handleScroll = () => setScrolled(window.scrollY > 50);
++    window.addEventListener('scroll', handleScroll);
++    return () => window.removeEventListener('scroll', handleScroll);
++  }, []);
++
++  return (
++    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
++      scrolled ? 'bg-deep-slate/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
++    }`}>
++      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
++        <div className="flex items-center gap-2">
++          <Wind className="w-8 h-8 text-frost-300" />
++          <span className="font-display font-bold text-2xl tracking-tighter text-white">
++            NORDIC<span className="text-frost-300">FROST</span>
++          </span>
++        </div>
++
++        <div className="hidden md:flex items-center gap-8 font-light text-sm tracking-widest text-frost-100">
++          <a href="#" className="hover:text-white transition-colors">GLACIERS</a>
++          <a href="#" className="hover:text-white transition-colors">LAGOONS</a>
++          <a href="#" className="hover:text-white transition-colors">NORTHERN LIGHTS</a>
++          <a href="#" className="hover:text-white transition-colors">EXPEDITIONS</a>
++        </div>
++
++        <div className="flex items-center gap-6">
++          <Search className="w-5 h-5 text-frost-200 cursor-pointer hover:text-white transition-colors" />
++          <button className="hidden md:block px-6 py-2 border border-glass-border text-sm backdrop-blur-sm hover:bg-white hover:text-deep-slate transition-all duration-300">
++            BOOK NOW
++          </button>
++          <Menu className="w-6 h-6 md:hidden text-white" />
++        </div>
++      </div>
++    </nav>
++  );
++}
+\ No newline at end of file
+diff --git a/src/index.css b/src/index.css
+index f1d8c73..88e211e 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -1 +1,44 @@
++@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;700;800&display=swap');
+ @import "tailwindcss";
++
++@theme {
++  --font-sans: "Inter", sans-serif;
++  --font-display: "Syne", sans-serif;
++
++  --color-frost-50: #f0f9ff;
++  --color-frost-100: #e0f2fe;
++  --color-frost-200: #bae6fd;
++  --color-frost-300: #7dd3fc;
++  --color-frost-400: #38bdf8;
++  --color-frost-500: #0ea5e9;
++  --color-frost-900: #0c4a6e;
++  
++  --color-deep-slate: #0f172a;
++  --color-ice-overlay: rgba(255, 255, 255, 0.1);
++  --color-glass-border: rgba(255, 255, 255, 0.2);
++
++  --animate-float: float 6s ease-in-out infinite;
++  
++  @keyframes float {
++    0%, 100% { transform: translateY(0); }
++    50% { transform: translateY(-10px); }
++  }
++}
++
++body {
++  background-color: var(--color-deep-slate);
++  color: var(--color-frost-50);
++  overflow-x: hidden;
++}
++
++/* Custom Scrollbar for that 'Ice' feel */
++::-webkit-scrollbar {
++  width: 8px;
++}
++::-webkit-scrollbar-track {
++  background: #0f172a;
++}
++::-webkit-scrollbar-thumb {
++  background: #38bdf8;
++  border-radius: 4px;
++}
+\ No newline at end of file

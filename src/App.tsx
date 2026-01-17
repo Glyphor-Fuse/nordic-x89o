@@ -1,12 +1,23 @@
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import ExpeditionFinder from './components/ExpeditionFinder';
+import DestinationGrid from './components/DestinationGrid';
+import LagoonFeature from './components/LagoonFeature';
+import AuroraFooter from './components/AuroraFooter';
+
 function App() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black text-white">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold tracking-tight text-zinc-500">
-          Glyphor Fuse Skeleton
-        </h1>
-        <p className="mt-2 text-sm text-zinc-700">Waiting for generation...</p>
-      </div>
+    <div className="min-h-screen font-sans selection:bg-frost-400 selection:text-deep-slate">
+      <Navbar />
+      <main>
+        <Hero />
+        <div className="relative z-20 -mt-24 px-4">
+          <ExpeditionFinder />
+        </div>
+        <DestinationGrid />
+        <LagoonFeature />
+      </main>
+      <AuroraFooter />
     </div>
   );
 }
