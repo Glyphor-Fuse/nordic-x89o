@@ -5,60 +5,21 @@ const destinations = [
     id: 1,
     title: "Black Sand Beach",
     location: "Reynisfjara",
-    image: "<div className="relative">
-  <img 
-    src="https://images.pexels.com/photos/14376901/pexels-photo-14376901.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" 
-    alt="Woman in elegant red dress on Reynisfjara Beach, Iceland, showcasing dramatic rock formations."
-    width="3295"
-    height="4943"
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
-    <a href="https://www.pexels.com/photo/woman-in-red-spaghetti-strap-dress-standing-beside-the-rock-14376901/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-      Photo by Erica On The Go on Pexels
-    </a>
-  </div>
-</div>",
+    image: "https://images.pexels.com/photos/14376901/pexels-photo-14376901.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
     size: "large"
   },
   {
     id: 2,
     title: "Ice Caves",
     location: "Vatnajökull",
-    image: "<div className="relative">
-  <img 
-    src="https://images.pexels.com/photos/31028950/pexels-photo-31028950.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" 
-    alt="Explore the mesmerizing colors inside a natural icy formation."
-    width="3648"
-    height="5472"
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
-    <a href="https://www.pexels.com/photo/stunning-view-inside-an-ice-cave-31028950/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-      Photo by Shuo Wang on Pexels
-    </a>
-  </div>
-</div>",
+    image: "https://images.pexels.com/photos/31028950/pexels-photo-31028950.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
     size: "small"
   },
   {
     id: 3,
     title: "Geothermal",
     location: "Mývatn",
-    image: "<div className="relative">
-  <img 
-    src="https://images.pexels.com/photos/3115006/pexels-photo-3115006.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
-    alt="Aerial view of geothermal rocks and aqua waters at Iceland's Blue Lagoon."
-    width="2237"
-    height="2237"
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
-    <a href="https://www.pexels.com/photo/white-and-black-stone-fragment-3115006/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-      Photo by Mark Neal on Pexels
-    </a>
-  </div>
-</div>",
+    image: "https://images.pexels.com/photos/3115006/pexels-photo-3115006.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     size: "small"
   }
 ];

@@ -6,20 +6,7 @@ export default function LagoonFeature() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="<div className="relative">
-  <img 
-    src="https://images.pexels.com/photos/20955080/pexels-photo-20955080.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" 
-    alt="People enjoying relaxation and recreation in Iceland's soothing Blue Lagoon geothermal spa."
-    width="5184"
-    height="2916"
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
-    <a href="https://www.pexels.com/photo/people-bathing-in-the-pool-of-the-blue-lagoon-geothermal-spa-in-iceland-20955080/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-      Photo by It's MJ! on Pexels
-    </a>
-  </div>
-</div>" 
+          src="https://images.pexels.com/photos/20955080/pexels-photo-20955080.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" 
           alt="Blue Lagoon" 
           className="w-full h-full object-cover opacity-60"
         />
@@ -62,20 +49,7 @@ export default function LagoonFeature() {
         <div className="hidden lg:block relative">
           <div className="absolute -inset-4 bg-frost-400/20 blur-3xl rounded-full"></div>
           <img 
-            src="<div className="relative">
-  <img 
-    src="https://images.pexels.com/photos/7531673/pexels-photo-7531673.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" 
-    alt="A serene resort with bungalows amidst mossy volcanic rocks in Iceland."
-    width="3024"
-    height="4032"
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2">
-    <a href="https://www.pexels.com/photo/moss-covered-volcanic-rocks-with-bungalows-in-the-background-7531673/" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-      Photo by Christopher Seufert on Pexels
-    </a>
-  </div>
-</div>" 
+            src="https://images.pexels.com/photos/7531673/pexels-photo-7531673.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" 
             alt="Relaxation"
             className="relative rounded-2xl shadow-2xl border border-white/10 w-3/4 ml-auto"
           />
